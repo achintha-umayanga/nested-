@@ -3,6 +3,7 @@ import type React from "react"
 
 import { useState, useRef, useEffect } from "react"
 import { Button } from "./ui/button"
+
 import { Textarea } from "./ui/textarea"
 import { Send } from "lucide-react"
 import TypingIndicator from "./typing-indicator"
@@ -66,7 +67,7 @@ const CommentForm = ({
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder={placeholder}
-          className="min-h-[100px] resize-none pr-12"
+          className="min-h-[100px] resize-none pr-12 bg-white text-black dark:bg-gray-800 dark:text-white"
           disabled={isSubmitting}
         />
         {isSubmitting && (
@@ -81,7 +82,7 @@ const CommentForm = ({
         )}
       </div>
 
-      {error && <p className="text-red-500 text-sm">{error}</p>}
+      {error && <p className="text-red-600 dark:text-red-400 text-sm">{error}</p>}
 
       <div className="flex justify-end space-x-2">
         {onCancel && (
@@ -89,7 +90,7 @@ const CommentForm = ({
             Cancel
           </Button>
         )}
-        <Button type="submit" disabled={isSubmitting || !content.trim()}>
+        <Button type="submit" disabled={isSubmitting || !content.trim()} className="bg-blue-600 text-white dark:bg-blue-500 dark:text-white">
           {buttonText}
         </Button>
       </div>

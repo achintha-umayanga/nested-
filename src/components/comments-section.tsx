@@ -11,6 +11,16 @@ const CommentSection = () => {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    const interval = setInterval(async () => {
+      try {
+        const data = await fetchComments()
+        setComments(data)
+      } catch (err) {
+        console.error("Polling failed", err)
+      }
+    }, 5000)
+
+
     const loadComments = async () => {
       try {
         setIsLoading(true)
@@ -27,6 +37,7 @@ const CommentSection = () => {
 
     loadComments()
   }, [])
+  
 
   const handleAddComment = async (content: string) => {
     try {

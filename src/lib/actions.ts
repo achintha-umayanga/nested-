@@ -43,7 +43,7 @@ export const fetchComments = async (): Promise<Comment[]> => {
 // Add a new comment
 export const addComment = async (input: CommentInput): Promise<Comment> => {
   try {
-    return await apiRequest<Comment>("/comments", "POST", input)
+    return await apiRequest<Comment>("/comment/save", "POST", input)
   } catch (error) {
     console.error("Error adding comment:", error)
     throw error
