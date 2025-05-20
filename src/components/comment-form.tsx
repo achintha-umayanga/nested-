@@ -67,7 +67,7 @@ const CommentForm = ({
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder={placeholder}
-          className="min-h-[100px] resize-none pr-12 bg-white text-black dark:bg-gray-800 dark:text-white"
+          className="w-full bg-transparent border-none outline-none resize-none mb-2 text-gray-700"
           disabled={isSubmitting}
         />
         {isSubmitting && (
